@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-03-14 sáb 19:09 -->
+<!-- 2020-03-14 sáb 19:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Configs setup</title>
@@ -193,6 +193,12 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
@@ -225,64 +231,64 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge81bc90">1. Fresh linux install</a>
+<li><a href="#org3808c13">1. Fresh linux install</a>
 <ul>
-<li><a href="#orgebfb99c">1.1. update pacman package databse</a></li>
-<li><a href="#orge74e5fa">1.2. get yay</a></li>
-<li><a href="#org3d715f2">1.3. swap caps and escape</a>
+<li><a href="#org2068621">1.1. update pacman package databse</a></li>
+<li><a href="#org9551737">1.2. get yay</a></li>
+<li><a href="#org902947f">1.3. swap caps and escape</a>
 <ul>
-<li><a href="#orgd6294bb">1.3.1. get the xcape package</a></li>
-<li><a href="#orgbe90c21">1.3.2. add this to ~/.xprofile</a></li>
+<li><a href="#org2072fd2">1.3.1. get the xcape package</a></li>
+<li><a href="#org4b27976">1.3.2. add this to ~/.xprofile</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orge9b4fd9">2. ZSH</a>
+<li><a href="#org83d8858">2. ZSH</a>
 <ul>
-<li><a href="#org7166931">2.1. install zsh if needed</a></li>
-<li><a href="#org3730948">2.2. get oh-my-zsh</a></li>
-<li><a href="#orgda511a4">2.3. get powerline 10k</a></li>
+<li><a href="#org86b3fd1">2.1. install zsh if needed</a></li>
+<li><a href="#org7ed551d">2.2. get oh-my-zsh</a></li>
+<li><a href="#org6f513a0">2.3. get powerline 10k</a></li>
 </ul>
 </li>
-<li><a href="#org1b0df67">3. neovim</a>
+<li><a href="#org729055c">3. neovim</a>
 <ul>
-<li><a href="#org97bd366">3.1. install neovim</a>
+<li><a href="#orgd604afb">3.1. install neovim</a>
 <ul>
-<li><a href="#org9728b53">3.1.1. add these to .zshrc</a></li>
+<li><a href="#orgb4114b4">3.1.1. add these to .zshrc</a></li>
 </ul>
 </li>
-<li><a href="#org4eeb3b3">3.2. get init.vim from my git repo</a></li>
+<li><a href="#org2a28afe">3.2. get init.vim from my git repo</a></li>
 </ul>
 </li>
-<li><a href="#org4395adf">4. emacs</a>
+<li><a href="#org2fbbf8e">4. emacs</a>
 <ul>
-<li><a href="#org357debb">4.1. install emacs (AUR)</a></li>
-<li><a href="#orgd12a710">4.2. get doom emacs</a>
+<li><a href="#org16010a9">4.1. install emacs (AUR)</a></li>
+<li><a href="#org62764e8">4.2. get doom emacs</a>
 <ul>
-<li><a href="#orgdfabb80">4.2.1. don&rsquo;t forget to add it to the PATH in your zsh.rc file</a></li>
-<li><a href="#orge8c075a">4.2.2. copy the hidden config files from my repos to .doom.d</a></li>
+<li><a href="#org5996ae3">4.2.1. don&rsquo;t forget to add it to the PATH in your zsh.rc file</a></li>
+<li><a href="#org137b03d">4.2.2. copy the hidden config files from my repos to .doom.d</a></li>
 </ul>
 </li>
-<li><a href="#org2f8e2bd">4.3. if using lsp, don&rsquo;t forget to run M-x lsp-install-server</a></li>
-<li><a href="#orgc3c3411">4.4. some python specific flags to be added</a>
+<li><a href="#org2eb5c70">4.3. if using lsp, don&rsquo;t forget to run M-x lsp-install-server</a></li>
+<li><a href="#orgffa7980">4.4. some python specific flags to be added</a>
 <ul>
-<li><a href="#orgfdbceb1">4.4.1. py-isort</a></li>
-<li><a href="#org5904bd2">4.4.2. pyenv</a></li>
-<li><a href="#org81e5b8d">4.4.3. cython</a></li>
+<li><a href="#org8313f06">4.4.1. py-isort</a></li>
+<li><a href="#org3ecb5a4">4.4.2. pyenv</a></li>
+<li><a href="#org2ba5cbd">4.4.3. cython</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgad78b8f">5. python</a>
+<li><a href="#org0991505">5. python</a>
 <ul>
-<li><a href="#org29e4ffb">5.1. install pyenv</a>
+<li><a href="#org5b888a5">5.1. install pyenv</a>
 <ul>
-<li><a href="#org027cd12">5.1.1. don&rsquo;t forget to add it to the path</a></li>
+<li><a href="#orge2835c1">5.1.1. don&rsquo;t forget to add it to the path</a></li>
 </ul>
 </li>
-<li><a href="#orgc46b1de">5.2. install poetry</a>
+<li><a href="#org3b5c3a2">5.2. install poetry</a>
 <ul>
-<li><a href="#orgc247e69">5.2.1. the tutorial for zsh autocompletion is broken, follow this link</a></li>
+<li><a href="#org5724f93">5.2.1. the tutorial for zsh autocompletion is broken, follow this link</a></li>
 </ul>
 </li>
 </ul>
@@ -291,20 +297,20 @@
 </div>
 </div>
 
-<div id="outline-container-orge81bc90" class="outline-2">
-<h2 id="orge81bc90"><span class="section-number-2">1</span> Fresh linux install</h2>
+<div id="outline-container-org3808c13" class="outline-2">
+<h2 id="org3808c13"><span class="section-number-2">1</span> Fresh linux install</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgebfb99c" class="outline-3">
-<h3 id="orgebfb99c"><span class="section-number-3">1.1</span> update pacman package databse</h3>
+<div id="outline-container-org2068621" class="outline-3">
+<h3 id="org2068621"><span class="section-number-3">1.1</span> update pacman package databse</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 sudo pacman -Syu
 </p>
 </div>
 </div>
-<div id="outline-container-orge74e5fa" class="outline-3">
-<h3 id="orge74e5fa"><span class="section-number-3">1.2</span> get yay</h3>
+<div id="outline-container-org9551737" class="outline-3">
+<h3 id="org9551737"><span class="section-number-3">1.2</span> get yay</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 sudo pacman -S git
@@ -314,20 +320,20 @@ makepkg -si
 </p>
 </div>
 </div>
-<div id="outline-container-org3d715f2" class="outline-3">
-<h3 id="org3d715f2"><span class="section-number-3">1.3</span> swap caps and escape</h3>
+<div id="outline-container-org902947f" class="outline-3">
+<h3 id="org902947f"><span class="section-number-3">1.3</span> swap caps and escape</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-orgd6294bb" class="outline-4">
-<h4 id="orgd6294bb"><span class="section-number-4">1.3.1</span> get the xcape package</h4>
+<div id="outline-container-org2072fd2" class="outline-4">
+<h4 id="org2072fd2"><span class="section-number-4">1.3.1</span> get the xcape package</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 pacman -S xcape
 </p>
 </div>
 </div>
-<div id="outline-container-orgbe90c21" class="outline-4">
-<h4 id="orgbe90c21"><span class="section-number-4">1.3.2</span> add this to ~/.xprofile</h4>
+<div id="outline-container-org4b27976" class="outline-4">
+<h4 id="org4b27976"><span class="section-number-4">1.3.2</span> add this to ~/.xprofile</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <p>
 setxkbmap us -option &rsquo;caps:ctrl<sub>modifier</sub>&rsquo;
@@ -337,38 +343,38 @@ xcape -e &rsquo;Caps<sub>Lock</sub>=Escape&rsquo;
 </div>
 </div>
 </div>
-<div id="outline-container-orge9b4fd9" class="outline-2">
-<h2 id="orge9b4fd9"><span class="section-number-2">2</span> ZSH</h2>
+<div id="outline-container-org83d8858" class="outline-2">
+<h2 id="org83d8858"><span class="section-number-2">2</span> ZSH</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org7166931" class="outline-3">
-<h3 id="org7166931"><span class="section-number-3">2.1</span> install zsh if needed</h3>
+<div id="outline-container-org86b3fd1" class="outline-3">
+<h3 id="org86b3fd1"><span class="section-number-3">2.1</span> install zsh if needed</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 sudo pacman -S zsh
 </p>
 </div>
 </div>
-<div id="outline-container-org3730948" class="outline-3">
-<h3 id="org3730948"><span class="section-number-3">2.2</span> <a href="https://github.com/ohmyzsh/ohmyzsh">get oh-my-zsh</a></h3>
+<div id="outline-container-org7ed551d" class="outline-3">
+<h3 id="org7ed551d"><span class="section-number-3">2.2</span> <a href="https://github.com/ohmyzsh/ohmyzsh">get oh-my-zsh</a></h3>
 </div>
-<div id="outline-container-orgda511a4" class="outline-3">
-<h3 id="orgda511a4"><span class="section-number-3">2.3</span> <a href="https://github.com/romkatv/powerlevel10k">get powerline 10k</a></h3>
+<div id="outline-container-org6f513a0" class="outline-3">
+<h3 id="org6f513a0"><span class="section-number-3">2.3</span> <a href="https://github.com/romkatv/powerlevel10k">get powerline 10k</a></h3>
 </div>
 </div>
-<div id="outline-container-org1b0df67" class="outline-2">
-<h2 id="org1b0df67"><span class="section-number-2">3</span> neovim</h2>
+<div id="outline-container-org729055c" class="outline-2">
+<h2 id="org729055c"><span class="section-number-2">3</span> neovim</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org97bd366" class="outline-3">
-<h3 id="org97bd366"><span class="section-number-3">3.1</span> install neovim</h3>
+<div id="outline-container-orgd604afb" class="outline-3">
+<h3 id="orgd604afb"><span class="section-number-3">3.1</span> install neovim</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 sudo pacman -S neovim
 </p>
 </div>
-<div id="outline-container-org9728b53" class="outline-4">
-<h4 id="org9728b53"><span class="section-number-4">3.1.1</span> add these to .zshrc</h4>
+<div id="outline-container-orgb4114b4" class="outline-4">
+<h4 id="orgb4114b4"><span class="section-number-4">3.1.1</span> add these to .zshrc</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 export EDITOR=/usr/bin/nvim
@@ -377,8 +383,8 @@ export VISUAL=/usr/bin/nvim
 </div>
 </div>
 </div>
-<div id="outline-container-org4eeb3b3" class="outline-3">
-<h3 id="org4eeb3b3"><span class="section-number-3">3.2</span> get init.vim from<a href="https://github.com/Adarah/my_configs"> my git repo</a></h3>
+<div id="outline-container-org2a28afe" class="outline-3">
+<h3 id="org2a28afe"><span class="section-number-3">3.2</span> get init.vim from<a href="https://github.com/Adarah/my_configs"> my git repo</a></h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 git clone git@github.com:Adarah/my<sub>configs.git</sub>
@@ -388,84 +394,84 @@ cp my<sub>confits</sub>/init.vim ~/.config/nvim/
 </div>
 </div>
 </div>
-<div id="outline-container-org4395adf" class="outline-2">
-<h2 id="org4395adf"><span class="section-number-2">4</span> emacs</h2>
+<div id="outline-container-org2fbbf8e" class="outline-2">
+<h2 id="org2fbbf8e"><span class="section-number-2">4</span> emacs</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org357debb" class="outline-3">
-<h3 id="org357debb"><span class="section-number-3">4.1</span> install emacs (AUR)</h3>
+<div id="outline-container-org16010a9" class="outline-3">
+<h3 id="org16010a9"><span class="section-number-3">4.1</span> install emacs (AUR)</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 yay -S emacs-git
 </p>
 </div>
 </div>
-<div id="outline-container-orgd12a710" class="outline-3">
-<h3 id="orgd12a710"><span class="section-number-3">4.2</span> <a href="https://github.com/hlissner/doom-emacs">get doom emacs</a></h3>
+<div id="outline-container-org62764e8" class="outline-3">
+<h3 id="org62764e8"><span class="section-number-3">4.2</span> <a href="https://github.com/hlissner/doom-emacs">get doom emacs</a></h3>
 <div class="outline-text-3" id="text-4-2">
 </div>
-<div id="outline-container-orgdfabb80" class="outline-4">
-<h4 id="orgdfabb80"><span class="section-number-4">4.2.1</span> don&rsquo;t forget to add it to the PATH in your zsh.rc file</h4>
+<div id="outline-container-org5996ae3" class="outline-4">
+<h4 id="org5996ae3"><span class="section-number-4">4.2.1</span> don&rsquo;t forget to add it to the PATH in your zsh.rc file</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <p>
 export PATH=$PATH:~/.emacs/bin/
 </p>
 </div>
 </div>
-<div id="outline-container-orge8c075a" class="outline-4">
-<h4 id="orge8c075a"><span class="section-number-4">4.2.2</span> copy the hidden config files from my repos to .doom.d</h4>
+<div id="outline-container-org137b03d" class="outline-4">
+<h4 id="org137b03d"><span class="section-number-4">4.2.2</span> copy the hidden config files from my repos to .doom.d</h4>
 </div>
 </div>
-<div id="outline-container-org2f8e2bd" class="outline-3">
-<h3 id="org2f8e2bd"><span class="section-number-3">4.3</span> if using lsp, don&rsquo;t forget to run M-x lsp-install-server</h3>
+<div id="outline-container-org2eb5c70" class="outline-3">
+<h3 id="org2eb5c70"><span class="section-number-3">4.3</span> if using lsp, don&rsquo;t forget to run M-x lsp-install-server</h3>
 </div>
-<div id="outline-container-orgc3c3411" class="outline-3">
-<h3 id="orgc3c3411"><span class="section-number-3">4.4</span> <a href="https://github.com/hlissner/doom-emacs/blob/develop/modules/lang/python/README.org">some python specific flags to be added</a></h3>
+<div id="outline-container-orgffa7980" class="outline-3">
+<h3 id="orgffa7980"><span class="section-number-3">4.4</span> <a href="https://github.com/hlissner/doom-emacs/blob/develop/modules/lang/python/README.org">some python specific flags to be added</a></h3>
 <div class="outline-text-3" id="text-4-4">
 </div>
-<div id="outline-container-orgfdbceb1" class="outline-4">
-<h4 id="orgfdbceb1"><span class="section-number-4">4.4.1</span> py-isort</h4>
+<div id="outline-container-org8313f06" class="outline-4">
+<h4 id="org8313f06"><span class="section-number-4">4.4.1</span> py-isort</h4>
 </div>
-<div id="outline-container-org5904bd2" class="outline-4">
-<h4 id="org5904bd2"><span class="section-number-4">4.4.2</span> pyenv</h4>
+<div id="outline-container-org3ecb5a4" class="outline-4">
+<h4 id="org3ecb5a4"><span class="section-number-4">4.4.2</span> pyenv</h4>
 </div>
-<div id="outline-container-org81e5b8d" class="outline-4">
-<h4 id="org81e5b8d"><span class="section-number-4">4.4.3</span> cython</h4>
+<div id="outline-container-org2ba5cbd" class="outline-4">
+<h4 id="org2ba5cbd"><span class="section-number-4">4.4.3</span> cython</h4>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgad78b8f" class="outline-2">
-<h2 id="orgad78b8f"><span class="section-number-2">5</span> python</h2>
+<div id="outline-container-org0991505" class="outline-2">
+<h2 id="org0991505"><span class="section-number-2">5</span> python</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org29e4ffb" class="outline-3">
-<h3 id="org29e4ffb"><span class="section-number-3">5.1</span> install pyenv</h3>
+<div id="outline-container-org5b888a5" class="outline-3">
+<h3 id="org5b888a5"><span class="section-number-3">5.1</span> install pyenv</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 curl <a href="https://pyenv.run">https://pyenv.run</a> | zsh
 </p>
 </div>
-<div id="outline-container-org027cd12" class="outline-4">
-<h4 id="org027cd12"><span class="section-number-4">5.1.1</span> don&rsquo;t forget to add it to the path</h4>
+<div id="outline-container-orge2835c1" class="outline-4">
+<h4 id="orge2835c1"><span class="section-number-4">5.1.1</span> don&rsquo;t forget to add it to the path</h4>
 </div>
 </div>
-<div id="outline-container-orgc46b1de" class="outline-3">
-<h3 id="orgc46b1de"><span class="section-number-3">5.2</span> install poetry</h3>
+<div id="outline-container-org3b5c3a2" class="outline-3">
+<h3 id="org3b5c3a2"><span class="section-number-3">5.2</span> install poetry</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 curl -sSL <a href="https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py">https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py</a> | python
 </p>
 </div>
-<div id="outline-container-orgc247e69" class="outline-4">
-<h4 id="orgc247e69"><span class="section-number-4">5.2.1</span> the tutorial for zsh autocompletion is broken, <a href="https://github.com/python-poetry/poetry/issues/1734">follow this link</a></h4>
+<div id="outline-container-org5724f93" class="outline-4">
+<h4 id="org5724f93"><span class="section-number-4">5.2.1</span> the tutorial for zsh autocompletion is broken, <a href="https://github.com/python-poetry/poetry/issues/1734">follow this link</a></h4>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: John Doe</p>
-<p class="date">Created: 2020-03-14 sáb 19:09</p>
+<p class="date">Created: 2020-03-14 sáb 19:15</p>
 </div>
 </body>
 </html>
