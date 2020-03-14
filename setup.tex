@@ -1,0 +1,139 @@
+% Created 2020-03-14 sáb 20:07
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\date{\today}
+\title{My neovim/emacs config for python}
+\hypersetup{
+ pdfauthor={John Doe},
+ pdftitle={My neovim/emacs config for python},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.50 (Org mode 9.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\section{Fresh linux install}
+\label{sec:org3c621bb}
+\subsection{update pacman package databse}
+\label{sec:orgb825a67}
+\begin{verbatim}
+sudo pacman -Syu
+\end{verbatim}
+\subsection{get yay}
+\label{sec:org1955d5a}
+\begin{verbatim}
+sudo pacman -S git
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+\end{verbatim}
+\subsection{swap caps lock and escape}
+\label{sec:orgbc52c86}
+\subsubsection{get xcape}
+\label{sec:org7c61271}
+\begin{verbatim}
+pacman -S xcape
+\end{verbatim}
+\subsubsection{add this to \textasciitilde{}/.xprofile}
+\label{sec:org2b63645}
+\begin{verbatim}
+setxkbmap us -option 'caps:ctrl_modifier'
+xcape -e 'Caps_Lock=Escape'
+\end{verbatim}
+\subsection{clone my \href{https://github.com/https://github.com/Adarah/my\_configs}{git repo}}
+\label{sec:org6cbc8ef}
+\begin{verbatim}
+sudo pacman -S git
+git clone git@github.com:Adarah/my_configs.git
+\end{verbatim}
+\section{ZSH}
+\label{sec:org520bb61}
+\subsection{installation}
+\label{sec:org1b17e24}
+\begin{verbatim}
+sudo pacman -S zsh
+\end{verbatim}
+\subsection{\href{https://github.com/ohmyzsh/ohmyzsh}{oh-my-zsh}}
+\label{sec:org4aade17}
+Follow the installations guide.\\
+\subsection{\href{https://github.com/romkatv/powerlevel10k}{powerline 10k}}
+\label{sec:org1a0b090}
+Follow the installation guide.\\
+\section{neovim}
+\label{sec:orge348190}
+\subsection{installation}
+\label{sec:org14cac0f}
+\begin{verbatim}
+sudo pacman -S neovim
+\end{verbatim}
+\subsubsection{add these to .zshrc}
+\label{sec:orga6af6f5}
+\begin{verbatim}
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
+\end{verbatim}
+\subsection{copy the config file}
+\label{sec:org3bd1cd3}
+\begin{verbatim}
+mkdir ~/.config/nvim
+cp my_configs/init.vim ~/.config/nvim/
+\end{verbatim}
+\section{emacs}
+\label{sec:orgd0ee558}
+\subsection{install emacs (AUR)}
+\label{sec:orgbf3628c}
+\begin{verbatim}
+yay -S emacs-git
+\end{verbatim}
+\subsection{\href{https://github.com/hlissner/doom-emacs}{Doom emacs}}
+\label{sec:org1a70b4a}
+Follow the installation guide.\\
+Don't forget to add it to the PATH in your zsh.rc file\\
+\begin{verbatim}
+export PATH=$PATH:~/.emacs/bin/
+\end{verbatim}
+copy the hidden config files from my repos to .doom.d\\
+If using lsp, don't forget to run M-x lsp-install-server\\
+\subsubsection{\href{https://github.com/hlissner/doom-emacs/blob/develop/modules/lang/python/README.org}{some python options that are worth taking a look at}}
+\label{sec:org3887162}
+\begin{enumerate}
+\item lsp
+\label{sec:org592bdca}
+\item py-isort
+\label{sec:orgd8608c7}
+\item pyenv
+\label{sec:org76cc863}
+\item cython
+\label{sec:org95711ea}
+\end{enumerate}
+\section{python}
+\label{sec:org2d2b941}
+\subsection{pyenv installation}
+\label{sec:org1292f15}
+\begin{verbatim}
+curl https://pyenv.run | zsh
+\end{verbatim}
+\subsubsection{don't forget to add it to the path}
+\label{sec:org14ece25}
+\subsection{poetry installation}
+\label{sec:org63b9f37}
+\begin{verbatim}
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+\end{verbatim}
+the tutorial for zsh autocompletion is broken, \href{https://github.com/python-poetry/poetry/issues/1734}{follow this link}\\
+\end{document}

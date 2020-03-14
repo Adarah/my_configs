@@ -1,52 +1,84 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
-#+TITLE: Configs setup
+#+TITLE: My neovim/emacs config for python
+#+OPTIONS: toc:nil \n:t author:nil
 
 * Fresh linux install
 **  update pacman package databse
+#+begin_src shell
 sudo pacman -Syu
+#+end_src
 **  get yay
+#+begin_src shell
 sudo pacman -S git
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
-**  swap caps and escape
-*** get the xcape package
+#+end_src
+**  swap caps lock and escape
+*** get xcape
+#+begin_src shell
 pacman -S xcape
+#+end_src
 *** add this to ~/.xprofile
+#+begin_src
 setxkbmap us -option 'caps:ctrl_modifier'
 xcape -e 'Caps_Lock=Escape'
+#+end_src
+**  clone my [[github:https://github.com/Adarah/my_configs][git repo]]
+#+begin_src shell
+sudo pacman -S git
+git clone git@github.com:Adarah/my_configs.git
+#+end_src
 * ZSH
-**  install zsh if needed
+**  installation
+#+begin_src shell
 sudo pacman -S zsh
-**  [[https://github.com/ohmyzsh/ohmyzsh][get oh-my-zsh]]
-**  [[https://github.com/romkatv/powerlevel10k][get powerline 10k]]
+#+end_src
+**  [[https://github.com/ohmyzsh/ohmyzsh][oh-my-zsh]]
+Follow the installations guide.
+**  [[https://github.com/romkatv/powerlevel10k][powerline 10k]]
+Follow the installation guide.
 * neovim
-**  install neovim
+**  installation
+#+begin_src shell
 sudo pacman -S neovim
+#+end_src
 *** add these to .zshrc
+#+begin_src shell
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
-**  get init.vim from[[https://github.com/Adarah/my_configs][ my git repo]]
-git clone git@github.com:Adarah/my_configs.git
+#+end_src
+**  copy the config file
+#+begin_src shell
 mkdir ~/.config/nvim
-cp my_confits/init.vim ~/.config/nvim/
+cp my_configs/init.vim ~/.config/nvim/
+#+end_src
 * emacs
 **  install emacs (AUR)
+#+begin_src shell
 yay -S emacs-git
-**  [[https://github.com/hlissner/doom-emacs][get doom emacs]]
-*** don't forget to add it to the PATH in your zsh.rc file
+#+end_src
+**  [[https://github.com/hlissner/doom-emacs][Doom emacs]]
+Follow the installation guide.
+Don't forget to add it to the PATH in your zsh.rc file
+#+begin_src
 export PATH=$PATH:~/.emacs/bin/
-***  copy the hidden config files from my repos to .doom.d
-**  if using lsp, don't forget to run M-x lsp-install-server
-**  [[https://github.com/hlissner/doom-emacs/blob/develop/modules/lang/python/README.org][some python specific flags to be added]]
-*** py-isort
-*** pyenv
-*** cython
-
+#+end_src
+copy the hidden config files from my repos to .doom.d
+If using lsp, don't forget to run M-x lsp-install-server
+*** [[https://github.com/hlissner/doom-emacs/blob/develop/modules/lang/python/README.org][some python options that are worth taking a look at]]
+**** lsp
+**** py-isort
+**** pyenv
+**** cython
 * python
-**  install pyenv
+**  pyenv installation
+#+begin_src shell
 curl https://pyenv.run | zsh
+#+end_src
 ***  don't forget to add it to the path
-**  install poetry
+**  poetry installation
+#+begin_src shell
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
-*** the tutorial for zsh autocompletion is broken, [[https://github.com/python-poetry/poetry/issues/1734][follow this link]]
+#+end_src
+the tutorial for zsh autocompletion is broken, [[https://github.com/python-poetry/poetry/issues/1734][follow this link]]
