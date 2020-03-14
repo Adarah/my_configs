@@ -81,7 +81,7 @@ set mouse+=a
 " inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
 " Turns on the search highlight option.
-set hls
+" set hls
 
 " Plugins go here
 call plug#begin()
@@ -92,8 +92,6 @@ Plug 'tpope/vim-surround' " adds the 'surround' element to easily add brackets/p
 Plug 'jeetsukumaran/vim-pythonsense' " lets you move between 'python objects'
 Plug 'Vimjas/vim-python-pep8-indent' " pep8 compliant auto-indents
 " Visuals
-Plug 'camspiers/animate.vim' " adds some animations
-Plug 'camspiers/lens.vim' " dynamically resizes windows
 Plug 'blueyed/vim-diminactive' " dims inactive windows (or brightens for dark themes)
 Plug 'NLKNguyen/papercolor-theme' " neat color scheme
 " Linting and stuff

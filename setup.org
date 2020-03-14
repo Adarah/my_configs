@@ -1,0 +1,51 @@
+#+TITLE: Configs setup
+
+* Fresh linux install
+**  update pacman package databse
+sudo pacman -Syu
+**  get yay
+sudo pacman -S git
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+**  swap caps and escape
+*** get the xcape package
+pacman -S xcape
+*** add this to ~/.xprofile
+setxkbmap us -option 'caps:ctrl_modifier'
+xcape -e 'Caps_Lock=Escape'
+* ZSH
+**  install zsh if needed
+sudo pacman -S zsh
+**  [[https://github.com/ohmyzsh/ohmyzsh][get oh-my-zsh]]
+**  [[https://github.com/romkatv/powerlevel10k][get powerline 10k]]
+* neovim
+**  install neovim
+sudo pacman -S neovim
+*** add these to .zshrc
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
+**  get init.vim from[[https://github.com/Adarah/my_configs][ my git repo]]
+git clone git@github.com:Adarah/my_configs.git
+mkdir ~/.config/nvim
+cp my_confits/init.vim ~/.config/nvim/
+* emacs
+**  install emacs (AUR)
+yay -S emacs-git
+**  [[https://github.com/hlissner/doom-emacs][get doom emacs]]
+*** don't forget to add it to the PATH in your zsh.rc file
+export PATH=$PATH:~/.emacs/bin/
+***  copy the hidden config files from my repos to .doom.d
+**  if using lsp, don't forget to run M-x lsp-install-server
+**  [[https://github.com/hlissner/doom-emacs/blob/develop/modules/lang/python/README.org][some python specific flags to be added]]
+*** py-isort
+*** pyenv
+*** cython
+
+* python
+**  install pyenv
+curl https://pyenv.run | zsh
+***  don't forget to add it to the path
+**  install poetry
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+*** the tutorial for zsh autocompletion is broken, [[https://github.com/python-poetry/poetry/issues/1734][follow this link]]
