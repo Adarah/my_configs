@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-03-14 sáb 19:09 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Configs setup</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="John Doe" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.cacheClassElem = elem.className;
+         elem.cacheClassTarget = target.className;
+         target.className = "code-highlighted";
+         elem.className   = "code-highlighted";
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(elem.cacheClassElem)
+         elem.className = elem.cacheClassElem;
+       if(elem.cacheClassTarget)
+         target.className = elem.cacheClassTarget;
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Configs setup</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orge81bc90">1. Fresh linux install</a>
+<ul>
+<li><a href="#orgebfb99c">1.1. update pacman package databse</a></li>
+<li><a href="#orge74e5fa">1.2. get yay</a></li>
+<li><a href="#org3d715f2">1.3. swap caps and escape</a>
+<ul>
+<li><a href="#orgd6294bb">1.3.1. get the xcape package</a></li>
+<li><a href="#orgbe90c21">1.3.2. add this to ~/.xprofile</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orge9b4fd9">2. ZSH</a>
+<ul>
+<li><a href="#org7166931">2.1. install zsh if needed</a></li>
+<li><a href="#org3730948">2.2. get oh-my-zsh</a></li>
+<li><a href="#orgda511a4">2.3. get powerline 10k</a></li>
+</ul>
+</li>
+<li><a href="#org1b0df67">3. neovim</a>
+<ul>
+<li><a href="#org97bd366">3.1. install neovim</a>
+<ul>
+<li><a href="#org9728b53">3.1.1. add these to .zshrc</a></li>
+</ul>
+</li>
+<li><a href="#org4eeb3b3">3.2. get init.vim from my git repo</a></li>
+</ul>
+</li>
+<li><a href="#org4395adf">4. emacs</a>
+<ul>
+<li><a href="#org357debb">4.1. install emacs (AUR)</a></li>
+<li><a href="#orgd12a710">4.2. get doom emacs</a>
+<ul>
+<li><a href="#orgdfabb80">4.2.1. don&rsquo;t forget to add it to the PATH in your zsh.rc file</a></li>
+<li><a href="#orge8c075a">4.2.2. copy the hidden config files from my repos to .doom.d</a></li>
+</ul>
+</li>
+<li><a href="#org2f8e2bd">4.3. if using lsp, don&rsquo;t forget to run M-x lsp-install-server</a></li>
+<li><a href="#orgc3c3411">4.4. some python specific flags to be added</a>
+<ul>
+<li><a href="#orgfdbceb1">4.4.1. py-isort</a></li>
+<li><a href="#org5904bd2">4.4.2. pyenv</a></li>
+<li><a href="#org81e5b8d">4.4.3. cython</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgad78b8f">5. python</a>
+<ul>
+<li><a href="#org29e4ffb">5.1. install pyenv</a>
+<ul>
+<li><a href="#org027cd12">5.1.1. don&rsquo;t forget to add it to the path</a></li>
+</ul>
+</li>
+<li><a href="#orgc46b1de">5.2. install poetry</a>
+<ul>
+<li><a href="#orgc247e69">5.2.1. the tutorial for zsh autocompletion is broken, follow this link</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge81bc90" class="outline-2">
+<h2 id="orge81bc90"><span class="section-number-2">1</span> Fresh linux install</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgebfb99c" class="outline-3">
+<h3 id="orgebfb99c"><span class="section-number-3">1.1</span> update pacman package databse</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+sudo pacman -Syu
+</p>
+</div>
+</div>
+<div id="outline-container-orge74e5fa" class="outline-3">
+<h3 id="orge74e5fa"><span class="section-number-3">1.2</span> get yay</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+sudo pacman -S git
+git clone <a href="https://aur.archlinux.org/yay.git">https://aur.archlinux.org/yay.git</a>
+cd yay
+makepkg -si
+</p>
+</div>
+</div>
+<div id="outline-container-org3d715f2" class="outline-3">
+<h3 id="org3d715f2"><span class="section-number-3">1.3</span> swap caps and escape</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-orgd6294bb" class="outline-4">
+<h4 id="orgd6294bb"><span class="section-number-4">1.3.1</span> get the xcape package</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+pacman -S xcape
+</p>
+</div>
+</div>
+<div id="outline-container-orgbe90c21" class="outline-4">
+<h4 id="orgbe90c21"><span class="section-number-4">1.3.2</span> add this to ~/.xprofile</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<p>
+setxkbmap us -option &rsquo;caps:ctrl<sub>modifier</sub>&rsquo;
+xcape -e &rsquo;Caps<sub>Lock</sub>=Escape&rsquo;
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orge9b4fd9" class="outline-2">
+<h2 id="orge9b4fd9"><span class="section-number-2">2</span> ZSH</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org7166931" class="outline-3">
+<h3 id="org7166931"><span class="section-number-3">2.1</span> install zsh if needed</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+sudo pacman -S zsh
+</p>
+</div>
+</div>
+<div id="outline-container-org3730948" class="outline-3">
+<h3 id="org3730948"><span class="section-number-3">2.2</span> <a href="https://github.com/ohmyzsh/ohmyzsh">get oh-my-zsh</a></h3>
+</div>
+<div id="outline-container-orgda511a4" class="outline-3">
+<h3 id="orgda511a4"><span class="section-number-3">2.3</span> <a href="https://github.com/romkatv/powerlevel10k">get powerline 10k</a></h3>
+</div>
+</div>
+<div id="outline-container-org1b0df67" class="outline-2">
+<h2 id="org1b0df67"><span class="section-number-2">3</span> neovim</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org97bd366" class="outline-3">
+<h3 id="org97bd366"><span class="section-number-3">3.1</span> install neovim</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+sudo pacman -S neovim
+</p>
+</div>
+<div id="outline-container-org9728b53" class="outline-4">
+<h4 id="org9728b53"><span class="section-number-4">3.1.1</span> add these to .zshrc</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org4eeb3b3" class="outline-3">
+<h3 id="org4eeb3b3"><span class="section-number-3">3.2</span> get init.vim from<a href="https://github.com/Adarah/my_configs"> my git repo</a></h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+git clone git@github.com:Adarah/my<sub>configs.git</sub>
+mkdir ~/.config/nvim
+cp my<sub>confits</sub>/init.vim ~/.config/nvim/
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org4395adf" class="outline-2">
+<h2 id="org4395adf"><span class="section-number-2">4</span> emacs</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org357debb" class="outline-3">
+<h3 id="org357debb"><span class="section-number-3">4.1</span> install emacs (AUR)</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+yay -S emacs-git
+</p>
+</div>
+</div>
+<div id="outline-container-orgd12a710" class="outline-3">
+<h3 id="orgd12a710"><span class="section-number-3">4.2</span> <a href="https://github.com/hlissner/doom-emacs">get doom emacs</a></h3>
+<div class="outline-text-3" id="text-4-2">
+</div>
+<div id="outline-container-orgdfabb80" class="outline-4">
+<h4 id="orgdfabb80"><span class="section-number-4">4.2.1</span> don&rsquo;t forget to add it to the PATH in your zsh.rc file</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<p>
+export PATH=$PATH:~/.emacs/bin/
+</p>
+</div>
+</div>
+<div id="outline-container-orge8c075a" class="outline-4">
+<h4 id="orge8c075a"><span class="section-number-4">4.2.2</span> copy the hidden config files from my repos to .doom.d</h4>
+</div>
+</div>
+<div id="outline-container-org2f8e2bd" class="outline-3">
+<h3 id="org2f8e2bd"><span class="section-number-3">4.3</span> if using lsp, don&rsquo;t forget to run M-x lsp-install-server</h3>
+</div>
+<div id="outline-container-orgc3c3411" class="outline-3">
+<h3 id="orgc3c3411"><span class="section-number-3">4.4</span> <a href="https://github.com/hlissner/doom-emacs/blob/develop/modules/lang/python/README.org">some python specific flags to be added</a></h3>
+<div class="outline-text-3" id="text-4-4">
+</div>
+<div id="outline-container-orgfdbceb1" class="outline-4">
+<h4 id="orgfdbceb1"><span class="section-number-4">4.4.1</span> py-isort</h4>
+</div>
+<div id="outline-container-org5904bd2" class="outline-4">
+<h4 id="org5904bd2"><span class="section-number-4">4.4.2</span> pyenv</h4>
+</div>
+<div id="outline-container-org81e5b8d" class="outline-4">
+<h4 id="org81e5b8d"><span class="section-number-4">4.4.3</span> cython</h4>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgad78b8f" class="outline-2">
+<h2 id="orgad78b8f"><span class="section-number-2">5</span> python</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org29e4ffb" class="outline-3">
+<h3 id="org29e4ffb"><span class="section-number-3">5.1</span> install pyenv</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+curl <a href="https://pyenv.run">https://pyenv.run</a> | zsh
+</p>
+</div>
+<div id="outline-container-org027cd12" class="outline-4">
+<h4 id="org027cd12"><span class="section-number-4">5.1.1</span> don&rsquo;t forget to add it to the path</h4>
+</div>
+</div>
+<div id="outline-container-orgc46b1de" class="outline-3">
+<h3 id="orgc46b1de"><span class="section-number-3">5.2</span> install poetry</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+curl -sSL <a href="https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py">https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py</a> | python
+</p>
+</div>
+<div id="outline-container-orgc247e69" class="outline-4">
+<h4 id="orgc247e69"><span class="section-number-4">5.2.1</span> the tutorial for zsh autocompletion is broken, <a href="https://github.com/python-poetry/poetry/issues/1734">follow this link</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: John Doe</p>
+<p class="date">Created: 2020-03-14 sáb 19:09</p>
+</div>
+</body>
+</html>
