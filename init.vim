@@ -88,7 +88,7 @@ call plug#begin()
 " Utilities
 Plug 'preservim/nerdtree' " Tree viewer
 Plug 'tpope/vim-commentary' " comment on gcc
-Plug 'tpope/vim-surround' " adds the 'surround' element to easily add brackets/parenthesis 
+Plug 'tpope/vim-surround' " adds the 'surround' element to easily add brackets/parenthesis
 Plug 'jeetsukumaran/vim-pythonsense' " lets you move between 'python objects'
 Plug 'Vimjas/vim-python-pep8-indent' " pep8 compliant auto-indents
 " Visuals

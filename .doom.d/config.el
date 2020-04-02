@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq user-full-name "Lucas Yuji Harada"
+      user-mail-address "lucasyharada@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -19,7 +19,7 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "monospace" :size 18))
+(setq doom-font (font-spec :family "monospace" :size 14))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -52,11 +52,7 @@
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
 
-;; (setq doom-theme 'moe-dark)
-
-
-;; (setq shell-file-name "/bin/zsh")
-(setq lsp-python-ms-extra-paths (list "./promotional_price_variables/etls/experiments"))
+(setq lsp-python-ms-extra-paths (list "./promotional_price_variables/etls/experiments" "./src"))
 
 
 (use-package org-pdftools
@@ -71,3 +67,23 @@
 
 (use-package org-noter-pdftools
   :after (org-noter))
+
+(setq TeX-PDF-mode t)
+(setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js")
+
+;; smart F keys, and fix to magit conflict
+(after! evil-snipe
+  (setq evil-snipe-repeat-keys t
+        evil-snipe-override-evil-repeat-keys t))
+(add-hook 'magit-mode-hook 'turn-off-evil-snipe-override-mode)
+
+;; (require 'lsp-java)
+(add-hook 'java-mode-hook #'lsp)
+
+;; (add-to-list 'display-buffer-alist
+;;              `(,(rx bos "*Flycheck errors*" eos)
+;;               (display-buffer-reuse-window
+;;                display-buffer-in-side-window)
+;;               (side            . bottom)
+;;               (reusable-frames . visible)
+;;               (window-height   . 0.33)))

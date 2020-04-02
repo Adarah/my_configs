@@ -53,3 +53,8 @@
 (package! org-pdftooks
   :recipe (:host github :repo "fuxialexander/org-pdftools"))
 (package! org-noter)
+(package! blacken)
+(package! org-reveal)
+(package! try)
+(package! skewer-mode)
+(package! posframe)
