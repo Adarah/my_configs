@@ -71,6 +71,13 @@ If using lsp, don't forget to run M-x lsp-install-server
 **** py-isort
 **** pyenv
 **** cython
+** Getting PDF tools to work in emacs
+Out of the box, the =org-latex-export-to-pdf= command will not work out of the
+box, as we are lacking certain latex packages. You will need to run the
+following commands:
+#+BEGIN_SRC sh
+sudo apt install texlive-latex-base texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra
+#+END_SRC
 * python
 **  pyenv installation
 #+begin_src shell

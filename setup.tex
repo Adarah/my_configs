@@ -1,4 +1,4 @@
-% Created 2020-03-14 sáb 20:07
+% Created 2020-04-07 Tue 09:30
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -17,25 +17,25 @@
 \date{\today}
 \title{My neovim/emacs config for python}
 \hypersetup{
- pdfauthor={John Doe},
+ pdfauthor={Lucas Yuji Harada},
  pdftitle={My neovim/emacs config for python},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 28.0.50 (Org mode 9.4)}, 
+ pdfcreator={Emacs 26.3 (Org mode 9.4)}, 
  pdflang={English}}
 \begin{document}
 
 \maketitle
 
 \section{Fresh linux install}
-\label{sec:org3c621bb}
+\label{sec:orge5776d8}
 \subsection{update pacman package databse}
-\label{sec:orgb825a67}
+\label{sec:org3bb78b6}
 \begin{verbatim}
 sudo pacman -Syu
 \end{verbatim}
 \subsection{get yay}
-\label{sec:org1955d5a}
+\label{sec:org6ec3e41}
 \begin{verbatim}
 sudo pacman -S git
 git clone https://aur.archlinux.org/yay.git
@@ -43,65 +43,65 @@ cd yay
 makepkg -si
 \end{verbatim}
 \subsection{swap caps lock and escape}
-\label{sec:orgbc52c86}
+\label{sec:org4f4842e}
 \subsubsection{get xcape}
-\label{sec:org7c61271}
+\label{sec:org5ee61d2}
 \begin{verbatim}
 pacman -S xcape
 \end{verbatim}
 \subsubsection{add this to \textasciitilde{}/.xprofile}
-\label{sec:org2b63645}
+\label{sec:org8fc1090}
 \begin{verbatim}
 setxkbmap us -option 'caps:ctrl_modifier'
 xcape -e 'Caps_Lock=Escape'
 \end{verbatim}
 \subsection{clone my \href{https://github.com/https://github.com/Adarah/my\_configs}{git repo}}
-\label{sec:org6cbc8ef}
+\label{sec:org42a4ccc}
 \begin{verbatim}
 sudo pacman -S git
 git clone git@github.com:Adarah/my_configs.git
 \end{verbatim}
 \section{ZSH}
-\label{sec:org520bb61}
+\label{sec:org4d7a8c6}
 \subsection{installation}
-\label{sec:org1b17e24}
+\label{sec:orgd43b480}
 \begin{verbatim}
 sudo pacman -S zsh
 \end{verbatim}
 \subsection{\href{https://github.com/ohmyzsh/ohmyzsh}{oh-my-zsh}}
-\label{sec:org4aade17}
+\label{sec:org8f3e408}
 Follow the installations guide.\\
 \subsection{\href{https://github.com/romkatv/powerlevel10k}{powerline 10k}}
-\label{sec:org1a0b090}
+\label{sec:org4dc6e24}
 Follow the installation guide.\\
 \section{neovim}
-\label{sec:orge348190}
+\label{sec:orgc61b32b}
 \subsection{installation}
-\label{sec:org14cac0f}
+\label{sec:org1b695f8}
 \begin{verbatim}
 sudo pacman -S neovim
 \end{verbatim}
 \subsubsection{add these to .zshrc}
-\label{sec:orga6af6f5}
+\label{sec:orgdd08969}
 \begin{verbatim}
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 \end{verbatim}
 \subsection{copy the config file}
-\label{sec:org3bd1cd3}
+\label{sec:org2cd8f94}
 \begin{verbatim}
 mkdir ~/.config/nvim
 cp my_configs/init.vim ~/.config/nvim/
 \end{verbatim}
 \section{emacs}
-\label{sec:orgd0ee558}
+\label{sec:orge1017c6}
 \subsection{install emacs (AUR)}
-\label{sec:orgbf3628c}
+\label{sec:orgd0b5ec2}
 \begin{verbatim}
 yay -S emacs-git
 \end{verbatim}
 \subsection{\href{https://github.com/hlissner/doom-emacs}{Doom emacs}}
-\label{sec:org1a70b4a}
+\label{sec:org0a27a5e}
 Follow the installation guide.\\
 Don't forget to add it to the PATH in your zsh.rc file\\
 \begin{verbatim}
@@ -110,28 +110,36 @@ export PATH=$PATH:~/.emacs/bin/
 copy the hidden config files from my repos to .doom.d\\
 If using lsp, don't forget to run M-x lsp-install-server\\
 \subsubsection{\href{https://github.com/hlissner/doom-emacs/blob/develop/modules/lang/python/README.org}{some python options that are worth taking a look at}}
-\label{sec:org3887162}
+\label{sec:org9e6fec4}
 \begin{enumerate}
 \item lsp
-\label{sec:org592bdca}
+\label{sec:orgdecdb69}
 \item py-isort
-\label{sec:orgd8608c7}
+\label{sec:orgff31e89}
 \item pyenv
-\label{sec:org76cc863}
+\label{sec:org42c4a48}
 \item cython
-\label{sec:org95711ea}
+\label{sec:org5850673}
 \end{enumerate}
+\subsection{Getting PDF tools to work in emacs}
+\label{sec:org243d508}
+Out of the box, the \texttt{org-latex-export-to-pdf} command will not work out of the\\
+box, as we are lacking certain latex packages. You will need to run the\\
+following commands:\\
+\begin{verbatim}
+sudo apt install texlive-latex-base texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra 
+\end{verbatim}
 \section{python}
-\label{sec:org2d2b941}
+\label{sec:org3778dc8}
 \subsection{pyenv installation}
-\label{sec:org1292f15}
+\label{sec:orgd03c8b2}
 \begin{verbatim}
 curl https://pyenv.run | zsh
 \end{verbatim}
 \subsubsection{don't forget to add it to the path}
-\label{sec:org14ece25}
+\label{sec:org5d6da8c}
 \subsection{poetry installation}
-\label{sec:org63b9f37}
+\label{sec:org3a9b690}
 \begin{verbatim}
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
 \end{verbatim}
