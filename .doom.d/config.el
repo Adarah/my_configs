@@ -87,3 +87,12 @@
 ;;               (side            . bottom)
 ;;               (reusable-frames . visible)
 ;;               (window-height   . 0.33)))
+
+;; web-mode settings https://emacs.stackexchange.com/questions/23810/getting-proper-indentation-for-python-flask-templates?rq=1
+(setq web-mode-engines-alist
+             '(("php" . "\\.phtml\\'")
+               ("jinja" . "\\.djhtml\\")))
+
+;; (setq dap-python-executable "/home/mag/Documents/personal/zoo_python/zoo_venv/bin/python")
+(add-hook 'js2-mode-hook (lambda () ( setq flycheck-checker 'javascript-standard) ))
+(add-hook 'python-mode-hook (lambda () ( setq flycheck-checker 'python-flake8) ))

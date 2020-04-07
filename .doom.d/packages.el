@@ -58,3 +58,4 @@
 (package! try)
 (package! skewer-mode)
 (package! posframe)
+(package! gradle-mode)
